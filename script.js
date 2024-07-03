@@ -110,6 +110,21 @@ document.addEventListener('DOMContentLoaded', () =>
 
         displayGanttChart(ganttChart);
         displayTable(processes);
+
+        let totalWt = processes.reduce((sum, p) => sum + p.wt, 0);
+        let totalTat = processes.reduce((sum, p) => sum + p.tat, 0);
+        let avgWt = totalWt / n;
+        let avgTat = totalTat / n;
+
+        displayAverages(avgWt, avgTat);
+
+        function displayAverages(avgWt, avgTat) {
+            const averagesDiv = document.getElementById('averages');
+            averagesDiv.innerHTML = `
+                <p>Average Waiting Time: ${avgWt.toFixed(2)}</p>
+                <p>Average Turnaround Time: ${avgTat.toFixed(2)}</p>
+            `;
+        }
     }
 
     function ShortestRemainingFirst() {
@@ -187,6 +202,21 @@ document.addEventListener('DOMContentLoaded', () =>
     
         displayGanttChart(ganttChart);
         displayTable(processes);
+
+        let totalWt = processes.reduce((sum, p) => sum + p.wt, 0);
+        let totalTat = processes.reduce((sum, p) => sum + p.tat, 0);
+        let avgWt = totalWt / n;
+        let avgTat = totalTat / n;
+
+        displayAverages(avgWt, avgTat);
+
+        function displayAverages(avgWt, avgTat) {
+            const averagesDiv = document.getElementById('averages');
+            averagesDiv.innerHTML = `
+                <p>Average Waiting Time: ${avgWt.toFixed(2)}</p>
+                <p>Average Turnaround Time: ${avgTat.toFixed(2)}</p>
+            `;
+        }
     }
     
     function displayGanttChart(ganttChart) {
